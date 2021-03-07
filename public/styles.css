@@ -1,10 +1,26 @@
+#navbar {
+    padding: 15px;
+}
 .navbar-light .navbar-brand {
     color:cadetblue;
-    font-weight: 1000;
+    font-size: 30px;
+}
+.navbar-nav li a {
+    font-size: 20px;
+}
+.navbar-nav li a.login {
+    font-family: monospace;
+}
+.navbar-nav li a.register {
+    font-family: serif;
 }
 .btn {
     border-radius: 0;
     color:#fff !important;
+}
+.btn-custom-primary {
+    background: #4299e1;
+    border-radius: 5px;
 }
 .form-control {
     border-radius: 0;
@@ -15,8 +31,8 @@
 #big-img {
     background: #2d3748;
     line-height: 200px;
-    color: #fff;
-    font-family: monospace;
+    color: #fff;;
+    font-family: monospace
 }
 #big-img h4 {
     color: #ccc;
@@ -24,4 +40,32 @@
 #big-img .text-box {
     padding-top: 180px;
     padding-bottom: 180px;
+}
+#course-lists {
+    padding: 20px;
+    font-family: monospace;
+}
+.course-title a {
+    text-decoration: none;
+    color:black;
+}
+.course-card {
+    border-radius: 15px;
+}
+.course-category a {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: black;
+}
+.author-img {
+    border-radius: 50%;
+}
+footer {
+    background: #2d3748;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #fff;
+    font-family: monospace;
 }
