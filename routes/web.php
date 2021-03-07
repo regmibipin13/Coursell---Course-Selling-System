@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PagesController::class, 'home'])->name('home');
 Route::get('/search',[SearchController::class, 'index'])->name('search');
+Route::get('/plans',[PagesController::class, 'pricing'])->name('pricing');
 
 Auth::routes();
 

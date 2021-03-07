@@ -11,4 +11,9 @@ class PagesController extends Controller
     {
         return view('frontend.pages.home');
     }
+
+    public function pricing()
+    {
+        return view('frontend.pages.pricing');
+    }
 }

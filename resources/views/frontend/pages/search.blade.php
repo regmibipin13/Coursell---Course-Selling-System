@@ -3,6 +3,11 @@
 
 <section id="search" class="bg-light p-5">
     <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <h5>10 Results Found for Laravel Vue</h5>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-3 filter-lists">
                 <div class="filter-content mb-3">
@@ -73,7 +78,7 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12 p-0 mb-2 search-bar-filter">
-                        <input type="search" class="form-control main-search-bar" placeholder="Enter the name of course , blog title , tutorials or author">
+                        <input type="search" class="form-control main-search-bar filter-search-bar" placeholder="Enter the name of course , blog title , tutorials or author">
                     </div>
                     <div class="col-md-12 mb-4 p-4 course-card-filters">
                         <h5 class="course-title pt-2 pb-2"><a href="">How to Build SPA Filters with Laravel and Vue </a></h5>
