@@ -108,7 +108,7 @@
     </div>
 </section>
 
-<section id="about-author" class="pt-5 pb-5">
+<section id="about-author" class="pt-5 pb-5 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">

@@ -41,6 +41,10 @@
     padding-top: 180px;
     padding-bottom: 180px;
 }
+#big-img .text-box-single-course {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
 #course-lists {
     padding: 20px;
     font-family: monospace;
@@ -51,6 +55,10 @@
 }
 .course-card {
     border-radius: 15px;
+}
+.course-card-episode {
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
 }
 .course-category a {
     background: #fff;
@@ -68,6 +76,9 @@ footer {
     padding-bottom: 10px;
     color: #fff;
     font-family: monospace;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 .filter-content {
     background: #fff;
@@ -191,4 +202,12 @@ footer {
                 transform: translateY(3px);
         box-shadow: none; 
 }
+.play-button a {
+    color: #ccc;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
   

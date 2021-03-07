@@ -8,6 +8,22 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                    
+                    @if(Auth::check())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="{{ asset('img/user.jpeg') }}" width="40" height="40" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">My Washlists</a>
+                          <a class="dropdown-item" href="#">Edit Profile</a>
+                          <a class="dropdown-item" href="#" onclick="document.getElementById('logout').submit();">Log Out</a>
+                            <form action="{{ route('logout') }}" method="POST" id="logout">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @else
                     <li class="nav-item">
                         <a class="nav-link login" href="#">Login</a>
                     </li>
@@ -16,6 +32,7 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-custom-primary register" href="#">Join Pro</a>
                     </li>
+                    @endif
                 </ul>
                 
             </div>

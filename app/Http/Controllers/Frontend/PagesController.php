@@ -16,4 +16,9 @@ class PagesController extends Controller
     {
         return view('frontend.pages.pricing');
     }
+
+    public function singleCourse()
+    {
+        return view('frontend.pages.single_course');
+    }
 }
