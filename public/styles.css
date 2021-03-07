@@ -1,0 +1,27 @@
+.navbar-light .navbar-brand {
+    color:cadetblue;
+    font-weight: 1000;
+}
+.btn {
+    border-radius: 0;
+    color:#fff !important;
+}
+.form-control {
+    border-radius: 0;
+}
+.main-search-bar {
+    padding: 15px;;
+}
+#big-img {
+    background: #2d3748;
+    line-height: 200px;
+    color: #fff;
+    font-family: monospace;
+}
+#big-img h4 {
+    color: #ccc;
+}
+#big-img .text-box {
+    padding-top: 180px;
+    padding-bottom: 180px;
+}
