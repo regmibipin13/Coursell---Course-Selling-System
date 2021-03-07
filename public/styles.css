@@ -69,3 +69,10 @@ footer {
     color: #fff;
     font-family: monospace;
 }
+.filter-content {
+    background: #fff;
+    padding: 20px;
+}
+.course-card-filters {
+    background: #fff;
+}

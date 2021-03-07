@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Frontend\PagesController;
+use App\Http\Controllers\Frontend\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PagesController::class, 'home'])->name('home');
+Route::get('/search',[SearchController::class, 'index'])->name('search');
 
 Auth::routes();
 
