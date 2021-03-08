@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,6 @@ Route::get('/course/single-course-slug',[PagesController::class, 'singleCourse']
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/account', [HomeController::class, 'index'])->name('home');
+Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
+Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
