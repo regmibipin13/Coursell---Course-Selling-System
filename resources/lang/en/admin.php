@@ -79,6 +79,7 @@ return [
             'description' => 'Description',
             'name' => 'Name',
             'total_duration' => 'Total duration',
+            'categories' => 'Categories'
             
         ],
     ],
@@ -109,6 +110,77 @@ return [
 
         'columns' => [
             'id' => 'ID',
+            
+        ],
+    ],
+
+    'episode' => [
+        'title' => 'Episodes',
+
+        'actions' => [
+            'index' => 'Episodes',
+            'create' => 'New Episode',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'description' => 'Description',
+            'duration' => 'Duration',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'episode' => [
+        'title' => 'Episodes',
+
+        'actions' => [
+            'index' => 'Episodes',
+            'create' => 'New Episode',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'course_id' => 'Course',
+            'description' => 'Description',
+            'duration' => 'Duration',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'category' => [
+        'title' => 'Categories',
+
+        'actions' => [
+            'index' => 'Categories',
+            'create' => 'New Category',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'suscription' => [
+        'title' => 'Suscriptions',
+
+        'actions' => [
+            'index' => 'Suscriptions',
+            'create' => 'New Suscription',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'features' => 'Features',
+            'name' => 'Name',
+            'price' => 'Price',
             
         ],
     ],

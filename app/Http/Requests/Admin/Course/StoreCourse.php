@@ -29,6 +29,7 @@ class StoreCourse extends FormRequest
             'description' => ['required', 'string'],
             'name' => ['required', 'string'],
             'total_duration' => ['required', 'string'],
+            'categories' => ['required'],
             
         ];
     }

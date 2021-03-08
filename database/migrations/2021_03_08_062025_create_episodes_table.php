@@ -15,6 +15,7 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('course_id')->unsigned();
             $table->string('title');
             $table->longText('description');
             $table->string('duration');

@@ -24,4 +24,14 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('categories'), 'has-success': fields.categories && fields.categories.valid }">
+    <label for="categories" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.course.columns.categories') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+            <multiselect v-model="form.categories" tag-placeholder="Add this as new category" placeholder="Search or add a category" label="name" track-by="id" :options="{{ $categories->toJson() }}" :multiple="true" :taggable="true"></multiselect>
+        <div v-if="errors.has('categories')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('categories') }}</div>
+    </div>
+</div>
+
+
+
 

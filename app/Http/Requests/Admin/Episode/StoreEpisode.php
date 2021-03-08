@@ -26,6 +26,10 @@ class StoreEpisode extends FormRequest
     public function rules(): array
     {
         return [
+            'course_id' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'duration' => ['required', 'string'],
+            'title' => ['required', 'string'],
             
         ];
     }

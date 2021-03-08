@@ -29,6 +29,7 @@ class UpdateCourse extends FormRequest
             'description' => ['sometimes', 'string'],
             'name' => ['sometimes', 'string'],
             'total_duration' => ['sometimes', 'string'],
+            'categories' => ['required'],
             
         ];
     }

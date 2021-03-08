@@ -26,6 +26,9 @@ class UpdateSuscription extends FormRequest
     public function rules(): array
     {
         return [
+            'features' => ['sometimes', 'string'],
+            'name' => ['sometimes', 'string'],
+            'price' => ['sometimes', 'numeric'],
             
         ];
     }

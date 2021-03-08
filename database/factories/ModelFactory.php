@@ -64,3 +64,50 @@ $factory->define(App\Models\Suscription::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Episode::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'description' => $faker->text(),
+        'duration' => $faker->sentence,
+        'title' => $faker->sentence,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Episode::class, static function (Faker\Generator $faker) {
+    return [
+        'course_id' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'description' => $faker->text(),
+        'duration' => $faker->sentence,
+        'title' => $faker->sentence,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'name' => $faker->firstName,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Suscription::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'features' => $faker->text(),
+        'name' => $faker->firstName,
+        'price' => $faker->randomFloat,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

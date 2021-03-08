@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Course\DestroyCourse;
 use App\Http\Requests\Admin\Course\IndexCourse;
 use App\Http\Requests\Admin\Course\StoreCourse;
 use App\Http\Requests\Admin\Course\UpdateCourse;
+use App\Models\Category;
 use App\Models\Course;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -64,8 +65,9 @@ class CoursesController extends Controller
     public function create()
     {
         $this->authorize('admin.course.create');
-
-        return view('admin.course.create');
+        $categories = Category::all();
+        // dd($categories->toJson());
+        return view('admin.course.create',compact('categories'));
     }
 
     /**
@@ -81,6 +83,9 @@ class CoursesController extends Controller
 
         // Store the Course
         $course = Course::create($sanitized);
+
+        $course->categories()->sync(collect($request->categories)->map->id->toArray());
+
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/courses'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -112,11 +117,13 @@ class CoursesController extends Controller
      */
     public function edit(Course $course)
     {
+        $course->load(['categories']);
         $this->authorize('admin.course.edit', $course);
-
+        $categories = Category::all();
 
         return view('admin.course.edit', [
             'course' => $course,
+            'categories' => $categories
         ]);
     }
 
@@ -134,6 +141,7 @@ class CoursesController extends Controller
 
         // Update changed values Course
         $course->update($sanitized);
+        $course->categories()->sync(collect($request->categories)->map->id->toArray());
 
         if ($request->ajax()) {
             return [

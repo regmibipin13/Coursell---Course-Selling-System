@@ -7,14 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Suscription extends Model
 {
     protected $fillable = [
+        'features',
+        'name',
+        'price',
     
     ];
     
     
     protected $dates = [
+        'created_at',
+        'updated_at',
     
     ];
-    public $timestamps = false;
     
     protected $appends = ['resource_url'];
 

@@ -18,7 +18,6 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->string('total_duration');
             $table->longText('description');
-            $table->string('creator_name');
             $table->timestamps();
         });
     }

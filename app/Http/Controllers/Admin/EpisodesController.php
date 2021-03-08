@@ -37,10 +37,10 @@ class EpisodesController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['course_id', 'duration', 'id', 'title'],
 
             // set columns to searchIn
-            ['']
+            ['description', 'duration', 'id', 'title']
         );
 
         if ($request->ajax()) {

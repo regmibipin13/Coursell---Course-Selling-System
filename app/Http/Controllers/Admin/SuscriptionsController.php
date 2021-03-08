@@ -37,10 +37,10 @@ class SuscriptionsController extends Controller
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'name', 'price'],
 
             // set columns to searchIn
-            ['']
+            ['features', 'id', 'name']
         );
 
         if ($request->ajax()) {

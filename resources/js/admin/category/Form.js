@@ -5,6 +5,7 @@ Vue.component('category-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 
             }
         }

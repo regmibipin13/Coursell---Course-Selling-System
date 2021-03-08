@@ -5,6 +5,10 @@ Vue.component('episode-form', {
     data: function() {
         return {
             form: {
+                course_id:  '' ,
+                description:  '' ,
+                duration:  '' ,
+                title:  '' ,
                 
             }
         }

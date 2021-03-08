@@ -26,6 +26,10 @@ class UpdateEpisode extends FormRequest
     public function rules(): array
     {
         return [
+            'course_id' => ['sometimes', 'string'],
+            'description' => ['sometimes', 'string'],
+            'duration' => ['sometimes', 'string'],
+            'title' => ['sometimes', 'string'],
             
         ];
     }

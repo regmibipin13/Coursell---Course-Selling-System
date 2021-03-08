@@ -5,6 +5,9 @@ Vue.component('suscription-form', {
     data: function() {
         return {
             form: {
+                features:  '' ,
+                name:  '' ,
+                price:  '' ,
                 
             }
         }

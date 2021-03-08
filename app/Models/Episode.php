@@ -7,14 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Episode extends Model
 {
     protected $fillable = [
+        'course_id',
+        'description',
+        'duration',
+        'title',
     
     ];
     
     
     protected $dates = [
+        'created_at',
+        'updated_at',
     
     ];
-    public $timestamps = false;
     
     protected $appends = ['resource_url'];
 
