@@ -23,8 +23,10 @@ class Episode extends Model
     
     protected $appends = ['resource_url'];
 
-    /* ************************ ACCESSOR ************************* */
-
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
+    }
     public function getResourceUrlAttribute()
     {
         return url('/admin/episodes/'.$this->getKey());

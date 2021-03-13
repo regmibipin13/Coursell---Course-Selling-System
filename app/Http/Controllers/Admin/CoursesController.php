@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Course\StoreCourse;
 use App\Http\Requests\Admin\Course\UpdateCourse;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Suscription;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -66,8 +67,9 @@ class CoursesController extends Controller
     {
         $this->authorize('admin.course.create');
         $categories = Category::all();
+        $suscriptions = Suscription::all();
         // dd($categories->toJson());
-        return view('admin.course.create',compact('categories'));
+        return view('admin.course.create',compact('categories','suscriptions'));
     }
 
     /**
@@ -85,6 +87,7 @@ class CoursesController extends Controller
         $course = Course::create($sanitized);
 
         $course->categories()->sync(collect($request->categories)->map->id->toArray());
+        $course->suscriptions()->sync(collect($request->suscriptions)->map->id->toArray());
 
 
         if ($request->ajax()) {
@@ -117,13 +120,15 @@ class CoursesController extends Controller
      */
     public function edit(Course $course)
     {
-        $course->load(['categories']);
+        $course->load(['categories','suscriptions']);
         $this->authorize('admin.course.edit', $course);
         $categories = Category::all();
+        $suscriptions = Suscription::all();
 
         return view('admin.course.edit', [
             'course' => $course,
-            'categories' => $categories
+            'categories' => $categories,
+            'suscriptions' => $suscriptions,
         ]);
     }
 
@@ -142,6 +147,7 @@ class CoursesController extends Controller
         // Update changed values Course
         $course->update($sanitized);
         $course->categories()->sync(collect($request->categories)->map->id->toArray());
+        $course->suscriptions()->sync(collect($request->suscriptions)->map->id->toArray());
 
         if ($request->ajax()) {
             return [

@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md-4" style="font-family: monospace;">
                     <a href="" class="btn btn-lg btn-custom-primary btn-block">Start Over</a>
-                    <a href="" class="btn btn-lg btn-secondary btn-block">Watch Later</a>
+                    <watchlist :course_id="1"></watchlist>
 
                     <div class="time mt-5">
                         <i class="fa fa-clock text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">1 hour 21 min</span>

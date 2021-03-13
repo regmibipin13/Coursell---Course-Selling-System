@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Episode\DestroyEpisode;
 use App\Http\Requests\Admin\Episode\IndexEpisode;
 use App\Http\Requests\Admin\Episode\StoreEpisode;
 use App\Http\Requests\Admin\Episode\UpdateEpisode;
+use App\Models\Course;
 use App\Models\Episode;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -64,8 +65,8 @@ class EpisodesController extends Controller
     public function create()
     {
         $this->authorize('admin.episode.create');
-
-        return view('admin.episode.create');
+        $courses = Course::all();
+        return view('admin.episode.create',compact('courses'));
     }
 
     /**
@@ -114,9 +115,11 @@ class EpisodesController extends Controller
     {
         $this->authorize('admin.episode.edit', $episode);
 
-
+        $episode->load(['course']);
+        $courses = Course::all();
         return view('admin.episode.edit', [
             'episode' => $episode,
+            'courses' => $courses
         ]);
     }
 

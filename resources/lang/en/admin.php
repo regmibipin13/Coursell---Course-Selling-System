@@ -79,7 +79,8 @@ return [
             'description' => 'Description',
             'name' => 'Name',
             'total_duration' => 'Total duration',
-            'categories' => 'Categories'
+            'categories' => 'Categories',
+            'suscriptions' => 'Suscriptions'
             
         ],
     ],

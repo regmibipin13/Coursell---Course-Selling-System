@@ -10,7 +10,13 @@ Vue.component('episode-form', {
                 duration:  '' ,
                 title:  '' ,
                 
-            }
+            },
+            course:'',
+        }
+    },
+    methods: {
+        select(course) {
+            this.form.course_id = course.id;
         }
     }
 

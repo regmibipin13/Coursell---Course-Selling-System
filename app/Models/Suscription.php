@@ -22,7 +22,10 @@ class Suscription extends Model
     
     protected $appends = ['resource_url'];
 
-    /* ************************ ACCESSOR ************************* */
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class,'course_suscription','course_id','suscription_id')->withTimestamps();
+    }
 
     public function getResourceUrlAttribute()
     {

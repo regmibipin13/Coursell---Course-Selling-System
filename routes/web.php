@@ -20,12 +20,14 @@ Route::get('/',[PagesController::class, 'home'])->name('home');
 Route::get('/search',[SearchController::class, 'index'])->name('search');
 Route::get('/plans',[PagesController::class, 'pricing'])->name('pricing');
 Route::get('/course/single-course-slug',[PagesController::class, 'singleCourse'])->name('singleCourse');
+Route::get('/course/single-course-slug/episode/1',[PagesController::class, 'singleEpisode'])->name('singleEpisode');
 
 Auth::routes();
 
 Route::get('/account', [HomeController::class, 'index'])->name('home');
 Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
 Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
+Route::post('/watchlists',[PagesController::class, 'watchlistsStore']);
 
 
 /* Auto-generated admin routes */

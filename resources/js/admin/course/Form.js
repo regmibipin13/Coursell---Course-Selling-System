@@ -10,6 +10,7 @@ Vue.component('course-form', {
                 name:  '' ,
                 total_duration:  '' ,
                 categories:[],
+                suscriptions:[],
                 
             }
         }

@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return url('/admin/users/'.$this->getKey());
     }
+
+    public function watchlists()
+    {
+        return $this->hasMany(Watchlist::class);
+    }
 }
