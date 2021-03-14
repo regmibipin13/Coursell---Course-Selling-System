@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Episode;
+use App\Models\Suscription;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class PagesController extends Controller
 
     public function pricing()
     {
-        return view('frontend.pages.pricing');
+        $plans = Suscription::all();
+        return view('frontend.pages.pricing',compact('plans'));
     }
 
     public function singleCourse(Course $course)
