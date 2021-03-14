@@ -23,6 +23,11 @@ class Course extends Model
     
     protected $appends = ['resource_url','released_time'];
 
+    public function firstEpisode()
+    {
+        return url('/course/'.$this->id.'/episode/'.$this->episodes()->first()->id);
+    }
+
     public function getReleasedTimeAttribute()
     {
         if($this->created_at !== null) {

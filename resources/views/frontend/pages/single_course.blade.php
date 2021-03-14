@@ -6,7 +6,7 @@
                 <div class="col-md-6 text-box-single-course">
                     <h1>{{ $course->name }}</h1>
                     <h5 style="color: #ccc;">{!! \Illuminate\Support\Str::limit($course->description, 250, $end='...') !!}</h5>
-                    <a href="" class="btn btn-lg btn-custom-primary">Watch This Course</a>
+                    <a href="{{ $course->firstEpisode() }}" class="btn btn-lg btn-custom-primary">Watch This Course</a>
                 </div>
             </div>
         </div>
@@ -33,9 +33,8 @@
                     </div>
                 </div>
                 <div class="col-md-4" style="font-family: monospace;">
-                    <a href="" class="btn btn-lg btn-custom-primary btn-block">Start Over</a>
+                    <a href="{{ $course->firstEpisode() }}" class="btn btn-lg btn-custom-primary btn-block">Start Over</a>
                     <watchlist :course_id="1"></watchlist>
-
                     <div class="time mt-5">
                         <i class="fa fa-clock text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">{{ $course->total_duration }}</span>
                     </div>

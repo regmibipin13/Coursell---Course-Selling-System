@@ -36,9 +36,12 @@ class Episode extends Model implements HasMedia
     
     protected $appends = ['resource_url','slug'];
 
-    public function playingNow($episode)
+    public function playingNow()
     {
-        
+        if(request()->route('episode')->id == $this->getKey()) {
+            return true;
+        }
+        return false;
     }
     public function getSlugAttribute()
     {
