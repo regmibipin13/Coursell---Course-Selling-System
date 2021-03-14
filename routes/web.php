@@ -25,6 +25,7 @@ Route::get('/course/{course}/episode/{episode}',[PagesController::class, 'single
 Auth::routes();
 
 Route::get('/account', [HomeController::class, 'index'])->name('home');
+Route::post('/account',[HomeController::class, 'updateProfile'])->name('updateProfile');
 Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
 Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
 Route::post('/watchlists',[PagesController::class, 'watchlistsStore']);

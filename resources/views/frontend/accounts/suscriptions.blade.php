@@ -9,7 +9,7 @@
                             Current Suscriptions
                         </div>
                         <div class="card-body">
-                            You are currently suscribed to Pro Suscriptions
+                            You are currently suscribed to Suscriptions
                             <a href="">Upgrade the suscriptions</a>
                         </div>
                     </div>

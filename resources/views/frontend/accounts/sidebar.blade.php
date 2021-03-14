@@ -1,13 +1,13 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li>
-            <a href="#">Account Settings</a>
+            <a href="{{ url('/account') }}">Account Settings</a>
         </li>
         <li>
-            <a href="#">My Saved Laters</a>
+            <a href="{{ url('/account/watchlists') }}">My Saved Laters</a>
         </li>
         <li>
-            <a href="#">My Suscriptions</a>
+            <a href="{{ url('/account/suscriptions') }}">My Suscriptions</a>
         </li>
     </ul>
 </div>

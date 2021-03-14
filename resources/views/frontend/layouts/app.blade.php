@@ -18,6 +18,9 @@
    @include('frontend.partials.__navbar')
 
        <div id="app">
+           <div class="container">
+                @include('flash::message')
+           </div>
             @yield('content')
        </div>
 
