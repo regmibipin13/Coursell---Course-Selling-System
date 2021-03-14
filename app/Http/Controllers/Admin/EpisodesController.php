@@ -114,8 +114,8 @@ class EpisodesController extends Controller
     public function edit(Episode $episode)
     {
         $this->authorize('admin.episode.edit', $episode);
-
-        $episode->load(['course']);
+        $episode->load(['course','media']);
+        // dd($episode);
         $courses = Course::all();
         return view('admin.episode.edit', [
             'episode' => $episode,

@@ -9,9 +9,10 @@ Vue.component('episode-form', {
                 description:  '' ,
                 duration:  '' ,
                 title:  '' ,
+                course:'',
                 
             },
-            course:'',
+            mediaCollections:['episode'],
         }
     },
     methods: {

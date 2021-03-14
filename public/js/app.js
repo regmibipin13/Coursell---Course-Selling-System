@@ -47244,7 +47244,7 @@ var render = function() {
             },
             [
               _c("h5", { staticClass: "course-title pt-2 pb-2" }, [
-                _c("a", { attrs: { href: "" } }, [
+                _c("a", { attrs: { href: "/course/" + course.id } }, [
                   _vm._v(_vm._s(course.name) + " ")
                 ])
               ]),

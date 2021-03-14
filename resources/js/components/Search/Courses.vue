@@ -5,7 +5,7 @@
                 <input type="search" v-model="$parent.selected.search" value="" class="form-control main-search-bar filter-search-bar" placeholder="Enter the name of course , blog title , tutorials or author">
             </div>
             <div class="col-md-12 mb-4 p-4 course-card-filters" v-for="(course , index) in courses" :key="index">
-                <h5 class="course-title pt-2 pb-2"><a href="">{{ course.name }} </a></h5>
+                <h5 class="course-title pt-2 pb-2"><a :href="'/course/'+course.id">{{ course.name }} </a></h5>
                 <div class="course-components d-flex align-items-center mb-3">
                     <div class="time">
                         <i class="fa fa-clock text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">{{ course.total_duration }}</span>

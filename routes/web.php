@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PagesController::class, 'home'])->name('home');
 Route::get('/search',[SearchController::class, 'index'])->name('search');
 Route::get('/plans',[PagesController::class, 'pricing'])->name('pricing');
-Route::get('/course/single-course-slug',[PagesController::class, 'singleCourse'])->name('singleCourse');
-Route::get('/course/single-course-slug/episode/1',[PagesController::class, 'singleEpisode'])->name('singleEpisode');
+Route::get('/course/{course}',[PagesController::class, 'singleCourse'])->name('singleCourse');
+Route::get('/course/{course}/episode/{episode}',[PagesController::class, 'singleEpisode'])->name('singleEpisode');
 
 Auth::routes();
 

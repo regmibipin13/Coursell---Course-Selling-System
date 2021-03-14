@@ -26,27 +26,26 @@
             </div>
         </div>
         <div class="row">
+            @foreach($courses as $course)
             <div class="col-md-12 mb-4 p-4 course-card bg-light">
-                <h5 class="course-title pt-2 pb-2"><a href="{{ route('singleCourse') }}">How to Build SPA Filters with Laravel and Vue </a></h5>
+                <h5 class="course-title pt-2 pb-2"><a href="{{ route('singleCourse',$course->id) }}">{{ $course->name }}</a></h5>
                 <div class="course-components d-flex align-items-center mb-3">
                     <div class="time">
-                        <i class="fa fa-clock text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">1 hour 21 min</span>
+                        <i class="fa fa-clock text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">{{ $course->total_duration }}</span>
                     </div>
                     &nbsp; &nbsp; &nbsp;
                     <div class="date">
-                        <i class="fas fa-calendar-week text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">Released 1 hour ago</span>
+                        <i class="fas fa-calendar-week text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">Released {{ $course->released_time }}</span>
                     </div>
                     &nbsp; &nbsp; &nbsp;
-                    <div class="users">
-                        <i class="fas fa-users text-secondary"></i>&nbsp;<span class="text-secondary font-weight-bold">Total 119 enrolled</span>
-                    </div>
                 </div>
                 <div class="course-category pt-3 pb-3">
-                    <a href="">Laravel</a>
-                    <a href="">Vue</a>
-                    <a href="">PHP</a>
+                    @foreach($course->categories as $cat)
+                    <a href="">{{ $cat->name }}</a>
+                    @endforeach
                 </div>
             </div>
+            @endforeach
 
             <div class="col-md-12 mb-4 text-center">
                 <a href="{{ route('search') }}" class="btn btn-custom-primary">See All Courses</a>
@@ -62,7 +61,7 @@
             <div class="col-md-12 text-center">
                 <h3 class="pt-2 pb-4">Unlimited access to everything <br />with pro membership.</h3>
                 <h6 class="text-secondary pb-3">For the price of a few coffees a month you get access to our entire <br />library of content, and more.</h6>
-                <a href="" class="btn btn-lg btn-custom-primary">See Our Plans</a>
+                <a href="{{ url('/plans') }}" class="btn btn-lg btn-custom-primary">See Our Plans</a>
             </div>
         </div>
     </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Course;
+use App\Models\Episode;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 
@@ -11,7 +13,8 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('frontend.pages.home');
+        $courses = Course::with(['categories','suscriptions'])->orderBy('id','desc')->limit(10)->get();
+        return view('frontend.pages.home',compact('courses'));
     }
 
     public function pricing()
@@ -19,14 +22,16 @@ class PagesController extends Controller
         return view('frontend.pages.pricing');
     }
 
-    public function singleCourse()
+    public function singleCourse(Course $course)
     {
-        return view('frontend.pages.single_course');
+        $course->load(['episodes','categories','suscriptions']);
+        return view('frontend.pages.single_course',compact('course'));
     }
 
-    public function singleEpisode()
+    public function singleEpisode(Course $course, Episode $episode)
     {
-        return view('frontend.pages.single_episode');
+        $episode->load(['media']);
+        return view('frontend.pages.single_episode',compact('episode','course'));
     }
 
     public function watchlistsStore(Request $request)

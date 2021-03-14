@@ -11,7 +11,8 @@ import VueCookie from 'vue-cookie';
 import { Admin } from 'craftable';
 import VModal from 'vue-js-modal'
 import Vue from 'vue';
-
+import VueCoreVideoPlayer from 'vue-core-video-player';
+Vue.use(VueCoreVideoPlayer);
 import './app-components/bootstrap';
 import './index';
 

@@ -1,10 +1,10 @@
 @extends('frontend.layouts.app')
 @section('content')
 <section id="video-player" style="height: 600px;">
-    <vue-core-video-player src="{{ asset('demo.mp4') }}"></vue-core-video-player>
+    <vue-core-video-player src="{{ $episode->getMedia('episode')->first()->getUrl() }}"></vue-core-video-player>
 </section>   
 
-<section id="episodes-lists" class="pt-5 pb-5">
+<section id="episodes-lists" class="pt-5 pb-5 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
