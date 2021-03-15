@@ -12,7 +12,7 @@
                     @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <img src="{{ asset('img/user.jpeg') }}" width="40" height="40" class="rounded-circle">
+                          <img src="{{ asset('img/user.png') }}" width="40" height="40" class="rounded-circle">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                           <a class="dropdown-item" href="{{ route('watchlists') }}">My Washlists</a>

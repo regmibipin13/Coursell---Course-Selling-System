@@ -71,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <img src="{{ asset('img/user.jpeg') }}" alt="User Img" width="150" class="img-fluid author-img">
+            <img src="{{ asset('img/user.png') }}" alt="User Img" width="150" class="img-fluid author-img">
                 <h5 class="text-primary pt-3 pb-1">Sonia Gandiya Ropez</h5>
                 <p class="pb-2">Founder / Author</p>
                 <p class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam tempora voluptatem modi. Aliquam explicabo earum vel adipisci itaque omnis provident doloremque quae minima ab. Temporibus consequatur facere voluptatibus eligendi sit!</p>

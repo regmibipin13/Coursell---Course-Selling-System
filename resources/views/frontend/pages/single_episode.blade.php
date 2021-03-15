@@ -7,6 +7,9 @@
 <section id="episodes-lists" class="pt-5 pb-5 mb-5">
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <p>{!! $episode->description !!}</p>
+            </div>
             <div class="col-md-8">
                 <div class="row">
                     @foreach($course->episodes as $episode)
