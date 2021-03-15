@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-
     protected $fillable = [
         'description',
         'name',
@@ -20,12 +19,14 @@ class Course extends Model
         'updated_at',
     
     ];
-    
+
     protected $appends = ['resource_url','released_time'];
 
     public function firstEpisode()
     {
-        return url('/course/'.$this->id.'/episode/'.$this->episodes()->first()->id);
+        if(count($this->episodes) > 0) {
+            return url('/course/'.$this->id.'/episode/'.$this->episodes()->first()->id);
+        }
     }
 
     public function getReleasedTimeAttribute()
