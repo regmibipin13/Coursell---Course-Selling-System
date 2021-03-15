@@ -29,6 +29,7 @@ Route::post('/account',[HomeController::class, 'updateProfile'])->name('updatePr
 Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
 Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
 Route::post('/watchlists',[PagesController::class, 'watchlistsStore']);
+Route::delete('watchlists/{watchlists}',[PagesController::class, 'deleteWatchlists'])->name('deleteWatchlists');
 
 
 /* Auto-generated admin routes */

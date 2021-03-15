@@ -16,4 +16,10 @@ class Watchlist extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function course()
+    {
+        return Course::where('id',$this->course_id)->first();
+    }
+
 }

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props:['course_id'],
+    props:['course'],
     data: function() {
         return {
 
@@ -14,10 +14,16 @@ export default {
         addWatchlist: function()
         {
             axios.post('/watchlists',{
-                course_id:this.course_id,
+                course_id:this.course.id,
             }).then((response) => {
-
-            })
+                if(response.data.type == 'success') {
+                    Vue.$toast.success(response.data.message);
+                } else {
+                    Vue.$toast.error(response.data.message);
+                }
+            }).catch((error) => {
+                Vue.$toast.error('Something went wrong . Please try again later');
+            });
         }
     }
 }

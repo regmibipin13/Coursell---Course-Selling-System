@@ -38,12 +38,21 @@ class PagesController extends Controller
 
     public function watchlistsStore(Request $request)
     {
+        // dd($request->all());
         $request->merge(['user_id'=>auth()->id()]);
         $status = auth()->user()->watchlists()->where('course_id',$request->course_id)->first();
         if($status !== null) {
-            return response()->json(['error'=>'Course is already on the watchlist']);
+            return response()->json(['type'=>'error','message'=>'Course is already on the watchlist']);
         }
         Watchlist::create($request->all());
-        return response()->json(['success'=>'Successfully Added to Watchlists']);
+        return response()->json(['type'=>'success','message'=>'Successfully Added to Watchlists']);
+    }
+
+    public function deleteWatchlists($id)
+    {
+        $watchlist = Watchlist::find($id);
+        $watchlist->delete();
+        flash('Watchlist Removed Successfully')->error();
+        return redirect()->back();
     }
 }

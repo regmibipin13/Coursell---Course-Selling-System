@@ -54,4 +54,6 @@ class Course extends Model
     {
         return $this->belongsToMany(Suscription::class, 'course_suscription','suscription_id','course_id')->withTimestamps();
     }
+
+
 }
