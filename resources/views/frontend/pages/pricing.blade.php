@@ -11,11 +11,11 @@
               <div class="card-body">
                 <i class="mdi mdi-cube-outline pricing-plan-icon"></i>
                 <p class="pricing-plan-title">{{ $plan->name }}</p>
-                <h3 class="pricing-plan-cost ml-auto">$.{{ $plan->price }} / m</h3>
+                <h3 class="pricing-plan-cost ml-auto">$.{{ $plan->price }} / {{ $plan->type }}</h3>
                 <p class="p-5">
                   {!! $plan->features !!}
                 </p>
-                <a href="#!" class="btn pricing-plan-purchase-btn">Choose</a>
+                <button class="btn pricing-plan-purchase-btn" id="stripeCheckout">Choose</button>
               </div>
             </div>
           </div>

@@ -49,15 +49,19 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'email'">{{ trans('admin.user.columns.email') }}</th>
-                                        <th is='sortable' :column="'email_verified_at'">{{ trans('admin.user.columns.email_verified_at') }}</th>
                                         <th is='sortable' :column="'id'">{{ trans('admin.user.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.user.columns.name') }}</th>
+                                        <th is='sortable' :column="'email'">{{ trans('admin.user.columns.email') }}</th>
+                                        <th is='sortable' :column="'email_verified_at'">{{ trans('admin.user.columns.email_verified_at') }}</th>
+                                        <th is='sortable' :column="'suscription_id'">{{ trans('admin.user.columns.suscription_id') }}</th>
+                                        <th is='sortable' :column="'trail_ends_at'">{{ trans('admin.user.columns.trail_ends_at') }}</th>
+                                        <th is='sortable' :column="'ends_at'">{{ trans('admin.user.columns.ends_at') }}</th>
+                                        <th is='sortable' :column="'started_at'">{{ trans('admin.user.columns.started_at') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="6">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="10">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/users')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -76,10 +80,14 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.email }}</td>
-                                        <td>@{{ item.email_verified_at | datetime }}</td>
-                                        <td>@{{ item.id }}</td>
+                                    <td>@{{ item.id }}</td>
                                         <td>@{{ item.name }}</td>
+                                        <td>@{{ item.email }}</td>
+                                        <td>@{{ item.email_verified_at | datetime }}</td>
+                                        <td>@{{ item.suscription_id }}</td>
+                                        <td>@{{ item.trail_ends_at | datetime }}</td>
+                                        <td>@{{ item.ends_at | datetime }}</td>
+                                        <td>@{{ item.started_at | datetime }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

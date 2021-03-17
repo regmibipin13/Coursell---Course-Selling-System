@@ -25,7 +25,7 @@ class IndexSuscription extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,name,price|nullable',
+            'orderBy' => 'in:id,name,price,type,stripe_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

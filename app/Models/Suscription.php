@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Suscription extends Model
 {
     protected $fillable = [
-        'features',
         'name',
+        'features',
         'price',
+        'type',
+        'stripe_id',
     
     ];
     
@@ -22,9 +24,14 @@ class Suscription extends Model
     
     protected $appends = ['resource_url'];
 
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
     public function courses()
     {
-        return $this->belongsToMany(Course::class,'course_suscription','course_id','suscription_id')->withTimestamps();
+        return $this->belongsToMany(Course::class, 'course_suscription','course_id','suscription_id');
     }
 
     public function getResourceUrlAttribute()

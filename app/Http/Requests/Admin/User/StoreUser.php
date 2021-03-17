@@ -26,10 +26,14 @@ class StoreUser extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['required', 'string'],
             'email' => ['required', 'email', Rule::unique('users', 'email'), 'string'],
             'email_verified_at' => ['nullable', 'date'],
-            'name' => ['required', 'string'],
             'password' => ['required', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
+            'suscription_id' => ['nullable', 'string'],
+            'trail_ends_at' => ['nullable', 'date'],
+            'ends_at' => ['nullable', 'date'],
+            'started_at' => ['nullable', 'date'],
             
         ];
     }

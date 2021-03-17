@@ -5,10 +5,14 @@ Vue.component('user-form', {
     data: function() {
         return {
             form: {
+                name:  '' ,
                 email:  '' ,
                 email_verified_at:  '' ,
-                name:  '' ,
                 password:  '' ,
+                suscription_id:  '' ,
+                trail_ends_at:  '' ,
+                ends_at:  '' ,
+                started_at:  '' ,
                 
             }
         }

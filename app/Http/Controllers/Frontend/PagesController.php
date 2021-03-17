@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Course;
 use App\Models\Episode;
 use App\Models\Suscription;
@@ -22,6 +21,7 @@ class PagesController extends Controller
     {
         $plans = Suscription::all();
         return view('frontend.pages.pricing',compact('plans'));
+        
     }
 
     public function singleCourse(Course $course)

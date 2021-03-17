@@ -52,11 +52,13 @@
                                         <th is='sortable' :column="'id'">{{ trans('admin.suscription.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.suscription.columns.name') }}</th>
                                         <th is='sortable' :column="'price'">{{ trans('admin.suscription.columns.price') }}</th>
+                                        <th is='sortable' :column="'type'">{{ trans('admin.suscription.columns.type') }}</th>
+                                        <th is='sortable' :column="'stripe_id'">{{ trans('admin.suscription.columns.stripe_id') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="5">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="7">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/suscriptions')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -78,6 +80,8 @@
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.name }}</td>
                                         <td>@{{ item.price }}</td>
+                                        <td>@{{ item.type }}</td>
+                                        <td>@{{ item.stripe_id }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

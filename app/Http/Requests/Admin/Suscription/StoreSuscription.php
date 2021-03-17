@@ -26,9 +26,11 @@ class StoreSuscription extends FormRequest
     public function rules(): array
     {
         return [
-            'features' => ['required', 'string'],
             'name' => ['required', 'string'],
+            'features' => ['required', 'string'],
             'price' => ['required', 'numeric'],
+            'type' => ['required', 'string'],
+            'stripe_id' => ['nullable', 'string'],
             
         ];
     }

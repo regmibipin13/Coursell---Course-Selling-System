@@ -37,10 +37,10 @@ class UsersController extends Controller
             $request,
 
             // set columns to query
-            ['email', 'email_verified_at', 'id', 'name'],
+            ['id', 'name', 'email', 'email_verified_at', 'suscription_id', 'trail_ends_at', 'ends_at', 'started_at'],
 
             // set columns to searchIn
-            ['email', 'id', 'name']
+            ['id', 'name', 'email']
         );
 
         if ($request->ajax()) {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Watchlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Suscription;
 
 class HomeController extends Controller
 {
@@ -43,7 +45,8 @@ class HomeController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        Auth::user()->update($request->except(['password_confirmation']));
+        Auth::user()->update($request->except(['password_confirmation','password']));
+        Auth::user()->update(['password'=>Hash::make($request->password)]);
         flash('Profile Updated Successfully')->success();
         return redirect()->back();
     }

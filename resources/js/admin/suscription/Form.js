@@ -5,9 +5,11 @@ Vue.component('suscription-form', {
     data: function() {
         return {
             form: {
-                features:  '' ,
                 name:  '' ,
+                features:  '' ,
                 price:  '' ,
+                type:  'month' ,
+                stripe_id:  '' ,
                 
             }
         }

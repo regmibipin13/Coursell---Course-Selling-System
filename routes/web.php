@@ -3,6 +3,7 @@
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,17 +21,22 @@ Route::get('/',[PagesController::class, 'home'])->name('home');
 Route::get('/search',[SearchController::class, 'index'])->name('search');
 Route::get('/plans',[PagesController::class, 'pricing'])->name('pricing');
 Route::get('/course/{course}',[PagesController::class, 'singleCourse'])->name('singleCourse');
-Route::get('/course/{course}/episode/{episode}',[PagesController::class, 'singleEpisode'])->name('singleEpisode');
+
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/course/{course}/episode/{episode}',[PagesController::class, 'singleEpisode'])->name('singleEpisode')->middleware('suscription');
+    Route::get('/account', [HomeController::class, 'index'])->name('home');
+    Route::post('/account',[HomeController::class, 'updateProfile'])->name('updateProfile');
+    Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
+    Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
+    Route::post('/watchlists',[PagesController::class, 'watchlistsStore']);
+    Route::delete('watchlists/{watchlists}',[PagesController::class, 'deleteWatchlists'])->name('deleteWatchlists');
+
+    // Payments Route 
+    Route::get('/stripe/session',[PaymentsController::class, 'session'])->name('payments.session');
+});
 
 Auth::routes();
-
-Route::get('/account', [HomeController::class, 'index'])->name('home');
-Route::post('/account',[HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::get('/account/watchlists',[HomeController::class, 'watchlists'])->name('watchlists');
-Route::get('/account/suscriptions',[HomeController::class, 'suscriptions'])->name('suscriptions');
-Route::post('/watchlists',[PagesController::class, 'watchlistsStore']);
-Route::delete('watchlists/{watchlists}',[PagesController::class, 'deleteWatchlists'])->name('deleteWatchlists');
-
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {

@@ -22,6 +22,11 @@ use Illuminate\View\View;
 
 class SuscriptionsController extends Controller
 {
+    public $stripe;
+    public function __construct()
+    {
+        $this->stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+    }
 
     /**
      * Display a listing of the resource.
@@ -37,10 +42,10 @@ class SuscriptionsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'price'],
+            ['id', 'name', 'price', 'type', 'stripe_id'],
 
             // set columns to searchIn
-            ['features', 'id', 'name']
+            ['id', 'name', 'features', 'type', 'stripe_id']
         );
 
         if ($request->ajax()) {
@@ -79,9 +84,22 @@ class SuscriptionsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
 
+        $response = $this->stripe->products->create([
+            'name' => $request->name,
+        ]);
+
+
+        $sanitized['stripe_id'] = $response->id;
+
         // Store the Suscription
         $suscription = Suscription::create($sanitized);
 
+        $this->stripe->prices->create([
+            'unit_amount' => $suscription->price * 100,
+            'currency' => env('STRIPE_CURRENCY'),
+            'recurring' => ['interval'=>$suscription->type],
+            'product' => $suscription->stripe_id,
+        ]);
         if ($request->ajax()) {
             return ['redirect' => url('admin/suscriptions'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
@@ -113,8 +131,6 @@ class SuscriptionsController extends Controller
     public function edit(Suscription $suscription)
     {
         $this->authorize('admin.suscription.edit', $suscription);
-
-
         return view('admin.suscription.edit', [
             'suscription' => $suscription,
         ]);
